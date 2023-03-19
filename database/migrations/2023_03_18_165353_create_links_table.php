@@ -19,6 +19,9 @@ class CreateLinksTable extends Migration
             $table->string('url');
             $table->string('hash')->unique();
             $table->integer('views')->nullable()->default(0);
+            $table->boolean('disable')->default(false);
+            $table->timestamp('expires_at', $precision = 0);
+            $table->boolean('expiry_notified')->default(false);
             $table->timestamps();
         });
     }
